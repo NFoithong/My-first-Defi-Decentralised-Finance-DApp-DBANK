@@ -8,7 +8,7 @@
 import Debug "mo:base/Debug";
 
 actor DBank {
-  var currentValue = 300;
+  var currentValue : Nat = 300;
   currentValue := 100;
 
   let id = 123456;
@@ -28,8 +28,13 @@ actor DBank {
   // Allow users to withdraw() an amount from te currentValue
   // Decrease the currentValue by the amount
   public func withdraw(amount : Nat) {
-    currentValue -= amount;
+    let tempValue : Int = currentValue - amount;
+    if (tempValue >= 0) {
+      currentValue -= amount;
 
-    Debug.print(debug_show (currentValue));
+      Debug.print(debug_show (currentValue));
+    } else {
+      Debug.print("Amount too large, currentValue less than 0");
+    };
   };
 };
