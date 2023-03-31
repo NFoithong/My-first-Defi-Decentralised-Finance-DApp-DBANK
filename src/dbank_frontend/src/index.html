@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>dbank</title>
-    <base href="/" />
-    <link rel="icon" href="favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="main.css" />
-  </head>
-  <body>
-    <main>
-      <img src="logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#">
-        <label for="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting"></section>
-    </main>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBank</title>
+    <link rel="stylesheet" href="main.css" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="DBank-logo.png" alt="DBank logo" width="100" />
+        <h1>Current Balance: $ <span id="value">234</span></h1>
+        <div class="divider"></div>
+        <form action="#">
+            <h2>Amount to Top Up</h2>
+            <input type="number" id="input-amount" step="0.01" min=0 name="topUp" value="" />
+            <h2>Amount to Withdraw</h2>
+            <input type="number" id="withdrawal-amount" step="0.01" min=0 name="withdraw" value="" />
+            <input type="submit" id="submit-btn" value="Finalise Transaction" />
+        </form>
+    </div>
+
+</body>
+
 </html>
