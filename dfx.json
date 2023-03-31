@@ -1,5 +1,6 @@
 {
   "canisters": {
+<<<<<<< HEAD
     "dbank": {
       "main": "src/dbank/main.mo",
       "type": "motoko"
@@ -14,6 +15,22 @@
       "source": [
         "src/dbank_assets/assets",
         "dist/dbank_assets/"
+=======
+    "dbank_backend": {
+      "main": "src/dbank_backend/main.mo",
+      "type": "motoko"
+    },
+    "dbank_frontend": {
+      "dependencies": [
+        "dbank_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/dbank_frontend/src/index.html"
+      },
+      "source": [
+        "src/dbank_frontend/assets",
+        "dist/dbank_frontend/"
+>>>>>>> bc73701 (Initial commit.)
       ],
       "type": "assets"
     }
@@ -24,6 +41,7 @@
       "packtool": ""
     }
   },
+<<<<<<< HEAD
   "dfx": "0.9.3",
   "networks": {
     "local": {
@@ -31,5 +49,8 @@
       "type": "ephemeral"
     }
   },
+=======
+  "output_env_file": ".env",
+>>>>>>> bc73701 (Initial commit.)
   "version": 1
 }

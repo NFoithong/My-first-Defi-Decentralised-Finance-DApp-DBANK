@@ -10,6 +10,12 @@
 # dfx temporary files
 .dfx/
 
+<<<<<<< HEAD
+=======
+# generated files
+src/declarations/
+
+>>>>>>> bc73701 (Initial commit.)
 # frontend code
 node_modules/
 dist/

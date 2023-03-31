@@ -38,9 +38,15 @@ const canisterEnvVariables = initCanisterEnv();
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
+<<<<<<< HEAD
 const frontendDirectory = "dbank_assets";
 
 const asset_entry = path.join("src", frontendDirectory, "src", "index.html");
+=======
+const frontendDirectory = "dbank_frontend";
+
+const frontend_entry = path.join("src", frontendDirectory, "src", "index.html");
+>>>>>>> bc73701 (Initial commit.)
 
 module.exports = {
   target: "web",
@@ -48,7 +54,11 @@ module.exports = {
   entry: {
     // The frontend.entrypoint points to the HTML file for this build, so we need
     // to replace the extension to `.js`.
+<<<<<<< HEAD
     index: path.join(__dirname, asset_entry).replace(/\.html$/, ".js"),
+=======
+    index: path.join(__dirname, frontend_entry).replace(/\.html$/, ".js"),
+>>>>>>> bc73701 (Initial commit.)
   },
   devtool: isDevelopment ? "source-map" : false,
   optimization: {
@@ -83,6 +93,7 @@ module.exports = {
   // },
   plugins: [
     new HtmlWebpackPlugin({
+<<<<<<< HEAD
       template: path.join(__dirname, asset_entry),
       cache: false,
     }),
@@ -94,6 +105,11 @@ module.exports = {
         },
       ],
     }),
+=======
+      template: path.join(__dirname, frontend_entry),
+      cache: false,
+    }),
+>>>>>>> bc73701 (Initial commit.)
     new webpack.EnvironmentPlugin({
       NODE_ENV: "development",
       ...canisterEnvVariables,
@@ -102,18 +118,41 @@ module.exports = {
       Buffer: [require.resolve("buffer/"), "Buffer"],
       process: require.resolve("process/browser"),
     }),
+<<<<<<< HEAD
   ],
   // proxy /api to port 8000 during development
   devServer: {
     proxy: {
       "/api": {
         target: "http://localhost:8000",
+=======
+    new CopyPlugin({
+      patterns: [
+        {
+          from: `src/${frontendDirectory}/src/.ic-assets.json*`,
+          to: ".ic-assets.json5",
+          noErrorOnMissing: true
+        },
+      ],
+    }),
+  ],
+  // proxy /api to port 4943 during development.
+  // if you edit dfx.json to define a project-specific local network, change the port to match.
+  devServer: {
+    proxy: {
+      "/api": {
+        target: "http://127.0.0.1:4943",
+>>>>>>> bc73701 (Initial commit.)
         changeOrigin: true,
         pathRewrite: {
           "^/api": "/api",
         },
       },
     },
+<<<<<<< HEAD
+=======
+    static: path.resolve(__dirname, "src", frontendDirectory, "assets"),
+>>>>>>> bc73701 (Initial commit.)
     hot: true,
     watchFiles: [path.resolve(__dirname, "src", frontendDirectory)],
     liveReload: true,
